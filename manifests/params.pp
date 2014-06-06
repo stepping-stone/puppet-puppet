@@ -5,17 +5,19 @@ class puppet::params {
     'Fedora',
     'RedHat',
     'CentOS': {
-      $sysconfig = true
-      $logdir = '/var/log/puppet'
-      $rundir = '/var/run/puppet'
-      $vardir = '$vardir/ssl'
+      $sysconfig       = true
+      $logdir          = '/var/log/puppet'
+      $rundir          = '/var/run/puppet'
+      $vardir          = '$vardir/ssl'
+      $restart_command = '/sbin/service puppet reload'
     }
     'Gentoo',
     'Archlinux': {
-      $sysconfig = false
-      $logdir = '/var/log/puppet'
-      $rundir = '/run/puppet'
-      $vardir = '$vardir/ssl'
+      $sysconfig       = false
+      $logdir          = '/var/log/puppet'
+      $rundir          = '/run/puppet'
+      $vardir          = '$vardir/ssl'
+      $restart_command = '/sbin/service puppet restart'
     }
     default: {
       $sysconfig = false

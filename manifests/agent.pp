@@ -96,7 +96,7 @@ class puppet::agent (
             hasstatus => true,
             # Make sure puppet reloads (HUP) after configuration changes...
             # Does not work, see http://projects.puppetlabs.com/issues/1273
-            restart   => '/sbin/service puppet reload',
+            restart   => $::puppet::params::restart_command,
             subscribe => File[$agentconfname],
         }
     } else {
